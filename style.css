@@ -1,0 +1,808 @@
+/* RESET + GLOBALS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --brand:#daa520;        /* goldenrod */
+  --text:#111;
+  --muted:#777;
+  --bg:#ffffff;
+  --soft:#eee0da;
+  --danger:#f44336;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+}
+
+img { max-width: 100%; height: auto; }
+
+a { color: inherit; }
+
+/* HEADER */
+.header {
+  min-height: 100vh;
+  width: 100%;
+  background-image:
+    linear-gradient(rgba(4, 9, 30, 0.85), rgba(4, 9, 30, 0.45)),
+    url(images/Types-of-building-materials.jpg);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  padding: 20px 6%;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1000;
+}
+
+.carino {
+  text-decoration: none;
+  color: var(--brand);
+  font-weight: 700;
+  font-size: 20px;
+}
+.carino1 { color: white; font-weight: 800; font-size: 20px; }
+.dot { color: white; font-weight: 800; }
+
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.nav-links {
+  flex: 1;
+  text-align: right;
+  transition: 0.5s;
+}
+
+.nav-links ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 8px 12px;
+  position: relative;
+}
+
+.nav-links ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.nav-links ul li::after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: var(--danger);
+  display: block;
+  margin: auto;
+  transition: 0.3s;
+}
+
+.nav-links ul li:hover::after { width: 100%; }
+
+.nav-overlay {
+  display: none; /* toggled on mobile */
+}
+
+/* HERO SECTION */
+.home {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  color: #fff;
+}
+
+.text-box {
+  max-width: 700px;
+  margin-top: 56px; /* space below nav */
+}
+
+.welcome { color: var(--brand); }
+
+.text-box h2 {
+  font-size: clamp(28px, 6vw, 56px);
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+}
+
+.text-box p {
+  margin-top: 16px;
+  font-size: 16px;
+  color: #eaeaea;
+}
+
+.btn-about, .hero-btn, .ghost-btn, .cta, .development {
+  display: inline-block;
+  text-decoration: none;
+  margin-top: 20px;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 12px 22px;
+  font-size: 14px;
+  background: transparent;
+  cursor: pointer;
+  transition: transform .2s ease, background .25s ease, color .25s ease, border-color .25s ease;
+  border-radius: 999px;
+}
+
+.btn-about:hover, .hero-btn:hover, .ghost-btn:hover, .cta:hover, .development:hover {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #111;
+  transform: translateY(-1px);
+}
+
+/* VIEW OUR DEVELOPMENTS BUTTON (hero bottom) */
+.development {
+  margin-top: auto;
+  padding: 12px 20px;
+  width: auto;
+  text-align: center;
+  border: 1px solid #fff;
+  color: #0f172a;
+  background:#daa520; 
+  background-color: #daa520;
+  border: none;
+}
+.dev { font-size: 16px; font-weight: 700; }
+
+/* WHAT WE DO */
+.course {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  padding-top: 90px;
+  padding-bottom: 10px;
+}
+
+.row {
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.course-col {
+  flex-basis: 31%;
+  margin-bottom: 32px;
+  text-align: center;
+  background: transparent;
+}
+.course-col img { border-radius: 12px; display:block; margin-bottom: 12px; }
+.course-col h3 { margin-top: 8px; }
+.course-col p { color: var(--muted); }
+
+/* ABOUT US */
+.about-us {
+  width: 100%;
+  background-color: var(--soft);
+  padding: 80px 20px;
+  text-align: center;
+}
+.about-box {
+  max-width: 900px;
+  margin: auto;
+  text-align: left;
+}
+.about-box h3 { font-size: 26px; }
+.about-box h4 {
+  margin-top: 16px;
+  font-weight: 700;
+}
+.about-box h6 {
+  margin-top: 12px;
+  font-weight: 600;
+  color: gray;
+}
+
+/* LATEST DEVELOPMENT */
+.latest-dev {
+  width: 80%;
+  padding-top: 90px;
+  padding-bottom: 10px;
+  margin: auto;
+}
+.latest-dev h2 { text-align: center; }
+.box-dev {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.col-dev {
+  flex-basis: 31%;
+  margin-top: 12px;
+  text-align: center;
+}
+.col-dev img { border-radius: 12px; display:block; margin-bottom: 10px; }
+.col-dev h4 { margin-top: 10px; font-weight: 800; }
+
+/* INVESTMENT RELATIONS */
+.invest {
+  background: #0f172a; /* slate-900 vibe */
+  color: #eaeaea;
+  padding: 90px 20px;
+}
+.invest-inner {
+  width: 80%;
+  margin: auto;
+  max-width: 1100px;
+  text-align: center;
+}
+.invest .lead {
+  color: #cfcfcf;
+  max-width: 760px;
+  margin: 12px auto 28px;
+}
+.invest-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 26px 0 32px;
+}
+.invest-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 18px;
+  border-radius: 14px;
+  text-align: left;
+}
+.invest-card h3 { color: #fff; margin-bottom: 8px; font-size: 18px; }
+.invest-card p { color: #cfcfcf; font-size: 14px; }
+.cta {
+  background: transparent;
+  border-color: var(--brand);
+  color: #fff;
+}
+.cta:hover { background: var(--brand); color: #111; }
+
+/* CONTACT */
+.contact {
+  background: #fafafa;
+  padding: 90px 20px;
+}
+.contact-inner {
+  width: 80%;
+  margin: auto;
+  max-width: 1100px;
+}
+.contact .lead { color: #444; margin: 10px 0 22px; }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 24px;
+  align-items: start;
+}
+.contact-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  padding: 18px;
+}
+.contact-form {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  padding: 18px;
+}
+.field { display: grid; gap: 6px; margin-bottom: 12px; }
+.field label { font-size: 13px; color: #333; }
+.field input, .field textarea {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 12px 12px;
+  font-size: 14px;
+  outline: none;
+}
+.field input:focus, .field textarea:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(218,165,32,0.15);
+}
+.form-note { font-size: 12px; color: #666; margin-top: 8px; }
+
+/* FOOTER */
+.footer {
+  padding: 26px 20px 40px;
+  text-align: center;
+  color: #666;
+}
+
+/* RESPONSIVE DESIGN */
+@media(max-width: 1000px){
+  .invest-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+/* MOBILE: ensure normal stacking, but the sliders below will override for slider-container */
+@media(max-width: 700px) {
+  .text-box p { font-size: 15px; }
+  .row, .box-dev { flex-direction: column; align-items: center; }
+  .course-col, .col-dev { flex-basis: 100%; }
+
+  /* mobile nav */
+  .nav-toggle { display: block; }
+  .nav-links {
+    position: fixed;
+    background: #0f172a;
+    height: 100vh;
+    width: 0;
+    top: 0;
+    right: 0;
+    text-align: left;
+    overflow-x: hidden;
+    transition: width 0.35s ease;
+    z-index: 9999;
+    padding-top: 12px;
+    border-left: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-links.open { width: 260px; }
+  .nav-links ul { padding: 30px; }
+  .nav-links ul li { display: block; }
+  .nav-links ul li a { display: block; padding: 12px 0; font-size: 16px; }
+
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 9998;
+  }
+  .nav-overlay.show { display: block; }
+
+  .invest-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================
+   SLIDER STYLES (mobile)
+   Make any container with .slider-container behave like a horizontal slider on mobile.
+   ============================ */
+/* RESET + GLOBALS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --brand:#daa520;        /* goldenrod */
+  --text:#111;
+  --muted:#777;
+  --bg:#ffffff;
+  --soft:#eee0da;
+  --danger:#f44336;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+}
+
+img { max-width: 100%; height: auto; }
+
+a { color: inherit; text-decoration: none; }
+
+/* HEADER */
+.header {
+  min-height: 100vh;
+  width: 100%;
+  background-image:
+    linear-gradient(rgba(4, 9, 30, 0.85), rgba(4, 9, 30, 0.45)),
+    url(images/Types-of-building-materials.jpg);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  padding: 20px 6%;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1000;
+}
+
+.carino {
+  text-decoration: none;
+  color: var(--brand);
+  font-weight: 700;
+  font-size: 20px;
+}
+.carino1 { color: white; font-weight: 800; font-size: 20px; }
+.dot { color: white; font-weight: 800; }
+
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.nav-links {
+  flex: 1;
+  text-align: right;
+  transition: 0.5s;
+}
+
+.nav-links ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 8px 12px;
+  position: relative;
+}
+
+.nav-links ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.nav-links ul li::after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: var(--danger);
+  display: block;
+  margin: auto;
+  transition: 0.3s;
+}
+
+.nav-links ul li:hover::after { width: 100%; }
+
+.nav-overlay {
+  display: none;
+}
+
+/* HERO SECTION */
+.home {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  color: #fff;
+}
+
+.text-box {
+  max-width: 700px;
+  margin-top: 56px;
+}
+
+.welcome { color: var(--brand); }
+
+.text-box h2 {
+  font-size: clamp(28px, 6vw, 56px);
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+}
+
+.text-box p {
+  margin-top: 16px;
+  font-size: 16px;
+  color: #eaeaea;
+}
+
+.btn-about, .hero-btn, .ghost-btn, .cta, .development {
+  display: inline-block;
+  text-decoration: none;
+  margin-top: 20px;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 12px 22px;
+  font-size: 14px;
+  background: transparent;
+  cursor: pointer;
+  transition: transform .2s ease, background .25s ease, color .25s ease, border-color .25s ease;
+  border-radius: 999px;
+}
+
+.btn-about:hover, .hero-btn:hover, .ghost-btn:hover, .cta:hover, .development:hover {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #111;
+  transform: translateY(-1px);
+}
+
+/* VIEW OUR DEVELOPMENTS BUTTON (hero bottom) */
+.development {
+  margin-top: auto;
+  padding: 12px 20px;
+  width: auto;
+  text-align: center;
+  border: none;
+  color: #0f172a;
+  background:#daa520; 
+}
+.dev { font-size: 16px; font-weight: 700; }
+
+/* WHAT WE DO */
+.course {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  padding-top: 90px;
+  padding-bottom: 10px;
+}
+
+.row, .slider-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.course-col, .slider-item {
+  flex-basis: 31%;
+  margin-bottom: 32px;
+  text-align: center;
+  background: transparent;
+}
+
+.course-col img { border-radius: 12px; display:block; margin-bottom: 12px; }
+.course-col h3 { margin-top: 8px; }
+.course-col p { color: var(--muted); }
+
+/* ABOUT US */
+.about-us {
+  width: 100%;
+  background-color: var(--soft);
+  padding: 80px 20px;
+  text-align: center;
+}
+.about-box {
+  max-width: 900px;
+  margin: auto;
+  text-align: left;
+}
+.about-box h3 { font-size: 26px; }
+.about-box h4 {
+  margin-top: 16px;
+  font-weight: 700;
+}
+.about-box h6 {
+  margin-top: 12px;
+  font-weight: 600;
+  color: gray;
+}
+
+/* LATEST DEVELOPMENT */
+.latest-dev {
+  width: 80%;
+  padding-top: 90px;
+  padding-bottom: 10px;
+  margin: auto;
+}
+.latest-dev h2 { text-align: center; }
+.col-dev img { border-radius: 12px; display:block; margin-bottom: 10px; }
+.col-dev h4 { margin-top: 10px; font-weight: 800; }
+
+/* INVESTMENT RELATIONS */
+.invest {
+  background: #0f172a;
+  color: #eaeaea;
+  padding: 90px 20px;
+}
+.invest-inner {
+  width: 80%;
+  margin: auto;
+  max-width: 1100px;
+  text-align: center;
+}
+.invest .lead {
+  color: #cfcfcf;
+  max-width: 760px;
+  margin: 12px auto 28px;
+}
+.invest-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 18px;
+  border-radius: 14px;
+  text-align: left;
+}
+.invest-card h3 { color: #fff; margin-bottom: 8px; font-size: 18px; }
+.invest-card p { color: #cfcfcf; font-size: 14px; }
+
+/* CONTACT */
+.contact {
+  background: #fafafa;
+  padding: 90px 20px;
+}
+.contact-inner {
+  width: 80%;
+  margin: auto;
+  max-width: 1100px;
+}
+.contact .lead { color: #444; margin: 10px 0 22px; }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 24px;
+  align-items: start;
+}
+.contact-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  padding: 18px;
+}
+.contact-form {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  padding: 18px;
+}
+.field { display: grid; gap: 6px; margin-bottom: 12px; }
+.field label { font-size: 13px; color: #333; }
+.field input, .field textarea {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 12px 12px;
+  font-size: 14px;
+  outline: none;
+}
+.field input:focus, .field textarea:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(218,165,32,0.15);
+}
+.form-note { font-size: 12px; color: #000000; margin-top: 8px; }
+/* Force the contact form button to always be visible */
+.contact-form button.cta {
+  display: inline-block;
+  background: var(--brand);   /* golden color */
+  color: #111;                /* text color */
+  border: none;               /* remove default border */
+  padding: 12px 22px;
+  font-size: 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.25s ease, color 0.25s ease;
+}
+
+/* Optional: hover effect */
+.contact-form button.cta:hover {
+  background: #e6b800;  /* slightly lighter shade */
+  transform: translateY(-1px);
+}
+
+
+/* FOOTER */
+.footer {
+  padding: 26px 20px 40px;
+  text-align: center;
+  color: #666;
+}
+
+/* RESPONSIVE DESIGN */
+@media(max-width: 1000px){
+  .invest-inner .slider-wrapper {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+  .invest-card { flex: 0 0 100%; min-width: 260px; }
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+/* MOBILE SLIDER: one card per view */
+@media(max-width: 700px) {
+  .slider-wrapper {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+  .slider-item { flex: 0 0 90%; scroll-snap-align: start; }
+  .slider-wrapper::-webkit-scrollbar { display: none; }
+  .slider-wrapper { -ms-overflow-style: none; scrollbar-width: none; }
+
+  .nav-toggle { display: block; }
+  .nav-links {
+    position: fixed;
+    background: #0f172a;
+    height: 100vh;
+    width: 0;
+    top: 0;
+    right: 0;
+    text-align: left;
+    overflow-x: hidden;
+    transition: width 0.35s ease;
+    z-index: 9999;
+    padding-top: 12px;
+    border-left: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-links.open { width: 260px; }
+  .nav-links ul { padding: 30px; }
+  .nav-links ul li { display: block; }
+  .nav-links ul li a { display: block; padding: 12px 0; font-size: 16px; }
+  .nav-overlay { display: block; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); z-index: 998; opacity:0; visibility:hidden; transition:0.3s; }
+  .nav-overlay.show { opacity:1; visibility: visible; }
+}
+/* Investment Relations Desktop Styling */
+@media(min-width: 701px) {
+  .invest-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cards in a row */
+    gap: 24px; /* give more breathing room */
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .invest-card {
+    background: #0f172a; /* darker, mature feel */
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 24px;
+    border-radius: 16px;
+    text-align: left;
+    color: #eaeaea;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .invest-card h3 {
+    color: #fff;
+    margin-bottom: 12px;
+    font-size: 20px;
+  }
+
+  .invest-card p {
+    color: #cfcfcf;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  /* subtle hover for “mature feel” */
+  .invest-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  }
+
+  /* remove mobile slider behavior */
+  .slider-container.invest-grid {
+    display: grid !important;
+    overflow: visible !important;
+    scroll-snap-type: none !important;
+  }
+}
